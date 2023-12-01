@@ -73,11 +73,13 @@ init();
 var gameId = setInterval(move, timeout);
 
 window.addEventListener('resize', function () {
-    clearInterval(gameId);
-    gameEnded = true;
-    init().then(() => {
-        gameId = setInterval(move, timeout);
-    });
+    if (!gameEnded) {
+        clearInterval(gameId);
+        gameEnded = true;
+        init().then(() => {
+            gameId = setInterval(move, timeout);
+        });
+    }
 });
 
 document.addEventListener("keypress", switchDir);
