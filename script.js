@@ -36,7 +36,7 @@ async function init() {
     nameCard.style.width = xCardEnd + "px";
     nameCard.style.height = yCardEnd + "px";
     topPos = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed) - speed - speed);
-    leftPos = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed) - speed - speed);
+    leftPos = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed) - speed);
     xStart = leftPos;
     yStart = topPos;
     console.log(leftPos, xStart);
