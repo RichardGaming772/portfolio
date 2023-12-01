@@ -20,7 +20,7 @@ body {
   position: relative;
 }
 
-main{
+main {
   overflow: hidden;
   display: flex;
   width: 100%;
@@ -64,4 +64,12 @@ main{
   position: absolute;
   left: 0;
   top: 0;
+}
+
+#nameCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
