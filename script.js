@@ -14,13 +14,19 @@ var maxWidth = document.querySelector("#field").clientWidth;
 var maxHeight = document.querySelector("#field").clientHeight;
 var speed = maxWidth / 100;
 var lastDirection = "r";
+var idle = true;
 
 var dirQueue = [];
 var nameCard = document.querySelector("#nameCard");
 var xCardEnd = roundToTwo(speed * Math.ceil(nameCard.scrollWidth / speed) + speed);
 var yCardEnd = roundToTwo(speed * Math.ceil(nameCard.scrollHeight / speed) + speed);
+var xStart = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed));
+var yStart = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed));
+var downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
+var leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd));
 
 async function init() {
+    idle = true;
     maxWidth = document.querySelector("#field").clientWidth;
     maxHeight = document.querySelector("#field").clientHeight;
     if (maxWidth <= 500)
@@ -31,15 +37,21 @@ async function init() {
         speed = (maxWidth / 100);
     nameCard.style.width = "unset";
     nameCard.style.height = "unset";
-    xCardEnd = roundToTwo(speed * Math.ceil(nameCard.scrollWidth / speed) + speed + speed);
-    yCardEnd = roundToTwo(speed * Math.ceil(nameCard.scrollHeight / speed) + speed + speed);
+    xCardEnd = roundToTwo(speed * Math.ceil(nameCard.scrollWidth / speed));
+    yCardEnd = roundToTwo(speed * Math.ceil(nameCard.scrollHeight / speed));
     nameCard.style.width = xCardEnd + "px";
     nameCard.style.height = yCardEnd + "px";
-    topPos = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed) - speed - speed);
+    nameCard.style.top = "unset";
+    nameCard.style.left = "unset";
+    topPos = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed) - speed);
     leftPos = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed) - speed);
+    downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
+    leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd) + speed);
+    nameCard.style.top = topPos + speed;
+    nameCard.style.left = leftPos + speed;
+    nameCard.style.position = "absolute";
     xStart = leftPos;
     yStart = topPos;
-    console.log(leftPos, xStart);
     dot.style.width = speed + "px";
     dot.style.height = speed + "px";
     trails.forEach(trail => {
@@ -56,8 +68,6 @@ async function init() {
     gameEnded = false;
     lastDirection = "r";
 }
-var xStart = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed) - speed);
-var yStart = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed) - speed);
 
 init();
 var gameId = setInterval(move, timeout);
@@ -72,16 +82,8 @@ window.addEventListener('resize', function () {
 
 document.addEventListener("keypress", switchDir);
 
-document.addEventListener("keypress", async function (e) {
-    if (gameEnded && e.code == "KeyR") {
-        init().then(() => {
-            gameId = setInterval(move, timeout);
-        })
-    }
-});
-
 function random(max) {
-    return Math.floor(Math.random() * max);
+    return Math.ceil(Math.random() * max);
 }
 
 var food = create("div", dot.parentNode, "", "food");
@@ -92,27 +94,27 @@ function roundToTwo(num) {
 
 function move() {
     var test = true;
-    var downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
-    var leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd));
-    if (leftPos == downTurn && topPos == yStart) {
-        direction = "d";
-        sinceDirection = 0;
-        test = false;
-    }
-    if (leftPos == downTurn && topPos == leftTurn) {
-        direction = "l";
-        sinceDirection = 0;
-        test = false;
-    }
-    if (leftPos == roundToTwo(xStart - speed) && topPos == leftTurn) {
-        direction = "u";
-        sinceDirection = 0;
-        test = false;
-    }
-    if (leftPos == roundToTwo(xStart - speed) && topPos == yStart) {
-        direction = "r";
-        sinceDirection = 0;
-        test = false;
+    if (idle) {
+        if (leftPos == downTurn && topPos == yStart) {
+            direction = "d";
+            sinceDirection = 0;
+            test = false;
+        }
+        if (leftPos == downTurn && topPos == leftTurn) {
+            direction = "l";
+            sinceDirection = 0;
+            test = false;
+        }
+        if (leftPos == roundToTwo(xStart) && topPos == leftTurn) {
+            direction = "u";
+            sinceDirection = 0;
+            test = false;
+        }
+        if (leftPos == roundToTwo(xStart) && topPos == yStart) {
+            direction = "r";
+            sinceDirection = 0;
+            test = false;
+        }
     }
     if (dirQueue.length > 0) {
         direction = dirQueue[0];
@@ -133,8 +135,8 @@ function move() {
     trails.push(trail);
     if (spawnFood) {
         spawnFood = false;
-        var foodX = random(maxWidth / speed) * speed;
-        var foodY = random(maxHeight / speed) * speed;
+        var foodX = roundToTwo((random(maxWidth / speed, speed) * speed) - speed);
+        var foodY = roundToTwo((random(maxHeight / speed, speed) * speed) - speed);
         food.style.left = foodX + "px";
         food.style.top = foodY + "px";
         food.style.width = speed + "px";
@@ -196,7 +198,7 @@ function move() {
         default:
             break;
     }
-    trails.forEach((t) => {
+    trails.forEach(async (t) => {
         if (
             !t.classList.contains("first") &&
             t.style.left == dot.style.left &&
@@ -204,6 +206,10 @@ function move() {
         ) {
             clearInterval(gameId);
             gameEnded = true;
+            await sleep(1000);
+            init().then(() => {
+                gameId = setInterval(move, timeout);
+            });
         }
         if (t.countdown <= 0) {
             trails.splice(trails.indexOf(t), 1);
@@ -220,6 +226,7 @@ function move() {
     lastDirection = direction;
 }
 function switchDir(e) {
+    idle = false;
     if (dirQueue.length > 0 || sinceDirection == 0) {
         switch (e.code) {
             case "KeyW":
@@ -350,3 +357,7 @@ function handleTouchMove(e) {
     xDown = null;
     yDown = null;
 };
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
