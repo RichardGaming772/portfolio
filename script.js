@@ -280,7 +280,6 @@ function handleTouchStart(e) {
 };                                                
                                                                          
 function handleTouchMove(e) {
-    e.preventDefault();
     if ( ! xDown || ! yDown ) {
         return;
     }
