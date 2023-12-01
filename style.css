@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  html, body{
+    height: 100%;
+    width: 100%;
+  }
+  #field{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: black;
+    position: relative;
+  }
+  .dot{
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: black;
+  }
+  .dotTrail{
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: black;
+  }
+  #player{
+    background-color: cyan;
+    z-index: 2;
+  }
+  .food{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
