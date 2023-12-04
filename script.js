@@ -45,7 +45,11 @@ async function init() {
     nameCard.style.left = "unset";
     topPos = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed) - speed);
     leftPos = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed) - speed);
-    downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
+    if (maxWidth == 1920) {
+        downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
+    } else {
+        downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
+    }
     leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd) + speed);
     nameCard.style.top = topPos + speed;
     nameCard.style.left = leftPos + speed;
