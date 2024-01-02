@@ -15,6 +15,7 @@ var maxHeight = document.querySelector("#field").clientHeight;
 var speed = maxWidth / 100;
 var lastDirection = "r";
 var idle = true;
+var navbox = document.querySelector("#homeNav");
 
 var dirQueue = [];
 var nameCard = document.querySelector("#nameCard");
@@ -53,6 +54,8 @@ async function init() {
     leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd) + speed);
     nameCard.style.top = topPos + speed;
     nameCard.style.left = leftPos + speed;
+    navbox.style.top = topPos + speed + nameCard.scrollHeight + speed + speed;
+    navbox.style.left = leftPos + speed + (nameCard.scrollWidth/2);;
     nameCard.style.position = "absolute";
     xStart = leftPos;
     yStart = topPos;

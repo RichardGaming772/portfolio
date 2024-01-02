@@ -73,3 +73,15 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+nav{
+  position: fixed;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  height: fit-content;
+  top: 0;
+  transform:translate(-50%,-50%);
+  gap: 15px;
+}
