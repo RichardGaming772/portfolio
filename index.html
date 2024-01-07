@@ -16,10 +16,27 @@
     <main>
         <h2 id="nameCard">Killian K/vella</h2>
     </main>
+    <div id="langSelect"><img src="https://cdn-icons-png.flaticon.com/512/197/197560.png" width="20px"></div>
+    <script>
+        document.cookie = "lang=fr;";
+        const frFlag = "https://cdn-icons-png.flaticon.com/512/197/197560.png";
+        const engFlag = "https://cdn-icons-png.flaticon.com/512/197/197374.png";
+        var langSelect = document.querySelector("#langSelect");
+        langSelect.addEventListener("click", () => {
+            console.log(document.cookie);
+            if (document.cookie == "lang=fr;") {
+                langSelect.firstChild.src = engFlag;
+                document.cookie = "lang=eng;";
+            } else {
+                langSelect.firstChild.src = frFlag;
+                document.cookie = "lang=fr;";
+            }
+        })
+    </script>
     <nav id="homeNav">
-        <div>Etudes</div>
-        <div>Experiences</div>
-        <div>Projets</div>
+        <div class="navItem">Etudes</div>
+        <div class="navItem">Experiences</div>
+        <div class="navItem">Projets</div>
     </nav>
     <script src="script.js"></script>
 </body>
