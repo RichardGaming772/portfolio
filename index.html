@@ -24,7 +24,7 @@
         var langSelect = document.querySelector("#langSelect");
         langSelect.addEventListener("click", () => {
             console.log(document.cookie);
-            if (document.cookie == "lang=fr;") {
+            if (document.cookie == "lang=fr") {
                 langSelect.firstChild.src = engFlag;
                 document.cookie = "lang=eng;";
             } else {
