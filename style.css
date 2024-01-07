@@ -121,7 +121,7 @@ nav{
   gap: 25px;
   filter: invert(1);
   opacity: 0.1;
-  animation: toolTipBreathing 5s ease 2s infinite normal;
+  animation: toolTipBreathing 5s ease infinite normal;
   user-select: none;
   transform: translate(-50%,-50%);
 }

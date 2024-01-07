@@ -93,7 +93,7 @@ window.addEventListener('resize', function () {
     }
 });
 
-document.addEventListener("keypress", switchDir);
+document.addEventListener("keydown", switchDir);
 
 function random(max) {
     return Math.ceil(Math.random() * max);
@@ -245,6 +245,7 @@ function switchDir(e) {
     idle = false;
     if (dirQueue.length > 0 || sinceDirection == 0) {
         switch (e.code) {
+            case "ArrowUp":
             case "KeyW":
                 if (dirQueue.length > 0) {
                     if (dirQueue.at(-1) != "d") {
@@ -254,6 +255,7 @@ function switchDir(e) {
                     dirQueue.push("u");
                 }
                 break;
+            case "ArrowDown":
             case "KeyS":
                 if (dirQueue.length > 0) {
                     if (dirQueue.at(-1) != "u") {
@@ -263,6 +265,7 @@ function switchDir(e) {
                     dirQueue.push("d");
                 }
                 break;
+            case "ArrowLeft":
             case "KeyA":
                 if (dirQueue.length > 0) {
                     if (dirQueue.at(-1) != "r") {
@@ -272,6 +275,7 @@ function switchDir(e) {
                     dirQueue.push("l");
                 }
                 break;
+            case "ArrowRight":
             case "KeyD":
                 if (dirQueue.length > 0) {
                     if (dirQueue.at(-1) != "l") {
@@ -286,24 +290,28 @@ function switchDir(e) {
         }
     } else {
         switch (e.code) {
+            case "ArrowUp":
             case "KeyW":
                 if (direction != "d") {
                     direction = "u";
                     sinceDirection = 0;
                 }
                 break;
+            case "ArrowDown":
             case "KeyS":
                 if (direction != "u") {
                     direction = "d";
                     sinceDirection = 0;
                 }
                 break;
+            case "ArrowLeft":
             case "KeyA":
                 if (direction != "r") {
                     direction = "l";
                     sinceDirection = 0;
                 }
                 break;
+            case "ArrowRight":
             case "KeyD":
                 if (direction != "l") {
                     direction = "r";
