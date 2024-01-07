@@ -16,6 +16,7 @@ var speed = maxWidth / 100;
 var lastDirection = "r";
 var idle = true;
 var navbox = document.querySelector("#homeNav");
+var toolTip = document.querySelector("#toolTip");
 
 var dirQueue = [];
 var nameCard = document.querySelector("#nameCard");
@@ -55,7 +56,10 @@ async function init() {
     nameCard.style.top = topPos + speed;
     nameCard.style.left = leftPos + speed;
     navbox.style.top = topPos + speed + nameCard.scrollHeight + speed + speed;
-    navbox.style.left = leftPos + speed + (nameCard.scrollWidth/2);;
+    navbox.style.left = leftPos + speed + (nameCard.scrollWidth/2);
+    toolTip.style.top = topPos + 8 * speed + nameCard.scrollHeight + speed + speed;
+    toolTip.style.left = leftPos + speed + (nameCard.scrollWidth/2);
+    toolTip.style.display = "flex";
     nameCard.style.position = "absolute";
     xStart = leftPos;
     yStart = topPos;
@@ -104,6 +108,7 @@ function roundToTwo(num) {
 function move() {
     var test = true;
     if (idle) {
+        toolTip.style.display = "flex";
         if (leftPos == downTurn && topPos == yStart) {
             direction = "d";
             sinceDirection = 0;
@@ -124,6 +129,8 @@ function move() {
             sinceDirection = 0;
             test = false;
         }
+    } else {
+        toolTip.style.display = "none";
     }
     if (dirQueue.length > 0) {
         direction = dirQueue[0];
