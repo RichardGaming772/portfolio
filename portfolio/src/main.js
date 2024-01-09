@@ -1,6 +1,8 @@
 import './assets/style.css'
 import HomePage from './Pages/HomePage.vue'
 import AboutPage from './Pages/AboutPage.vue'
+import ProjectsPage from './Pages/ProjectsPage.vue'
+import ContactPage from './Pages/ContactPage.vue'
 
 import { createApp } from 'vue'
 import * as VueRouter from 'vue-router'
@@ -19,6 +21,16 @@ const routes = [
       path: '/about',
       name: 'About',
       component: AboutPage
+    },
+    {
+      path: '/projects',
+      name: 'Projects',
+      component: ProjectsPage
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: ContactPage
     },
   ]
   

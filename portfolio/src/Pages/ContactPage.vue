@@ -8,17 +8,15 @@ export default {
 </script>
 
 <template>
+    <TopNav />
     <LangSelector />
     <div id="field"></div>
     <main>
-        <TopNav />
-        <div class="pageBody">
-            <header>
-                <h1>A propos</h1>
-            </header>
-            <LangDiv divClassString="ah" divId="divLol" frTxt="Francais" engTxt="Anglais"></LangDiv>
-        </div>
+        <header>
+            <h1>Contact</h1>
+        </header>
     </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
