@@ -1,11 +1,8 @@
 <script setup>
-import HomePage from './components/HomePage.vue';
-import LangSelector from './components/LangSelector.vue';
 </script>
 
 <template>
-  <HomePage />
-  <LangSelector />
+  <router-view :key="$route.path" />
 </template>
 
 <style scoped>

@@ -1,6 +1,24 @@
 <script >
+import LangSelector from '../components/LangSelector.vue';
+import VueCookies from 'vue-cookies'
+import LangDiv from './LangDiv.vue';
 export default {
+    data() {
+        return {
+            lang: $cookies.get('lang')
+        };
+    },
+    methods: {
+        pageNav(route) {
+            this.$router.push({
+                path: route
+            });
+        }
+    },
     mounted() {
+        this.emitter.on("lang-switch", () => {
+            this.lang = $cookies.get('lang');
+        });
         var dot = document.querySelector("#player");
         const timeout = 100;
         var topPos = 0;
@@ -11,7 +29,6 @@ export default {
         var spawnFood = true;
         var gameEnded = false;
         var sinceDirection = 0;
-
         var maxWidth = document.querySelector("#field").clientWidth;
         var maxHeight = document.querySelector("#field").clientHeight;
         var speed = maxWidth / 100;
@@ -19,7 +36,6 @@ export default {
         var idle = true;
         var navbox = document.querySelector("#homeNav");
         var toolTip = document.querySelector("#toolTip");
-
         var dirQueue = [];
         var nameCard = document.querySelector("#nameCard");
         var xCardEnd = roundToTwo(speed * Math.ceil(nameCard.scrollWidth / speed) + speed);
@@ -28,7 +44,6 @@ export default {
         var yStart = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed));
         var downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
         var leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd));
-
         async function init() {
             idle = true;
             maxWidth = document.querySelector("#field").clientWidth;
@@ -51,7 +66,8 @@ export default {
             leftPos = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed) - speed);
             if (maxWidth == 1920) {
                 downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
-            } else {
+            }
+            else {
                 downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
             }
             leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd) + speed);
@@ -81,10 +97,8 @@ export default {
             gameEnded = false;
             lastDirection = "r";
         }
-
         init();
         var gameId = setInterval(move, timeout);
-
         window.addEventListener('resize', function () {
             if (!gameEnded) {
                 clearInterval(gameId);
@@ -94,19 +108,14 @@ export default {
                 });
             }
         });
-
         document.addEventListener("keydown", switchDir);
-
         function random(max) {
             return Math.ceil(Math.random() * max);
         }
-
         var food = create("div", dot.parentNode, "", "food");
-
         function roundToTwo(num) {
             return +(Math.round(num + "e+2") + "e-2");
         }
-
         function move() {
             var test = true;
             if (idle) {
@@ -131,7 +140,8 @@ export default {
                     sinceDirection = 0;
                     test = false;
                 }
-            } else {
+            }
+            else {
                 toolTip.style.display = "none";
             }
             if (dirQueue.length > 0) {
@@ -187,7 +197,7 @@ export default {
             switch (direction) {
                 case "u":
                     trail.style.borderTop = sinceDirection > 0 ? "solid white 1px" : "unset";
-                    if (topPos - speed >= - 1) {
+                    if (topPos - speed >= -1) {
                         topPos = +(Math.round((topPos - speed) + "e+2") + "e-2");
                     }
                     dot.style.top = topPos + "px";
@@ -217,11 +227,9 @@ export default {
                     break;
             }
             trails.forEach(async (t) => {
-                if (
-                    !t.classList.contains("first") &&
+                if (!t.classList.contains("first") &&
                     t.style.left == dot.style.left &&
-                    t.style.top == dot.style.top
-                ) {
+                    t.style.top == dot.style.top) {
                     clearInterval(gameId);
                     gameEnded = true;
                     await sleep(1000);
@@ -253,7 +261,8 @@ export default {
                             if (dirQueue.at(-1) != "d") {
                                 dirQueue.push("u");
                             }
-                        } else if (direction != "d") {
+                        }
+                        else if (direction != "d") {
                             dirQueue.push("u");
                         }
                         break;
@@ -263,7 +272,8 @@ export default {
                             if (dirQueue.at(-1) != "u") {
                                 dirQueue.push("d");
                             }
-                        } else if (direction != "u") {
+                        }
+                        else if (direction != "u") {
                             dirQueue.push("d");
                         }
                         break;
@@ -273,7 +283,8 @@ export default {
                             if (dirQueue.at(-1) != "r") {
                                 dirQueue.push("l");
                             }
-                        } else if (direction != "r") {
+                        }
+                        else if (direction != "r") {
                             dirQueue.push("l");
                         }
                         break;
@@ -283,14 +294,16 @@ export default {
                             if (dirQueue.at(-1) != "l") {
                                 dirQueue.push("r");
                             }
-                        } else if (direction != "l") {
+                        }
+                        else if (direction != "l") {
                             dirQueue.push("r");
                         }
                         break;
                     default:
                         break;
                 }
-            } else {
+            }
+            else {
                 switch (e.code) {
                     case "ArrowUp":
                     case "KeyW":
@@ -325,69 +338,66 @@ export default {
                 }
             }
         }
-
         function create(tag, parent, text, classs = null, id = null) {
             let element = document.createElement(tag);
             element.appendChild(document.createTextNode(text));
             parent.appendChild(element);
-            if (classs) element.classList.add(classs);
-            if (id) element.id = id;
+            if (classs)
+                element.classList.add(classs);
+            if (id)
+                element.id = id;
             return element;
         }
-
         // Swipe Controls
-
         document.addEventListener('touchstart', handleTouchStart, false);
         document.addEventListener('touchmove', handleTouchMove, false);
-
         var xDown = null;
         var yDown = null;
-
         function getTouches(e) {
             return e.touches ||
                 e.originalEvent.touches;
         }
-
         function handleTouchStart(e) {
             const firstTouch = getTouches(e)[0];
             xDown = firstTouch.clientX;
             yDown = firstTouch.clientY;
-        };
-
+        }
+        ;
         function handleTouchMove(e) {
             if (!xDown || !yDown) {
                 return;
             }
-
             var xUp = e.touches[0].clientX;
             var yUp = e.touches[0].clientY;
-
             var xDiff = xDown - xUp;
             var yDiff = yDown - yUp;
             var temp = { code: "" };
-
             if (Math.abs(xDiff) > Math.abs(yDiff)) {
                 if (xDiff > 0) {
                     temp.code = "KeyA";
-                } else {
+                }
+                else {
                     temp.code = "KeyD";
                 }
-            } else {
+            }
+            else {
                 if (yDiff > 0) {
                     temp.code = "KeyW";
-                } else {
+                }
+                else {
                     temp.code = "KeyS";
                 }
             }
             switchDir(temp);
             xDown = null;
             yDown = null;
-        };
-
+        }
+        ;
         function sleep(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
     },
+    components: { LangDiv }
 }
 </script>
 
@@ -397,18 +407,18 @@ export default {
     </div>
     <div id="toolTip">
         <div></div>
-        <p>OU</p>
+        <p v-if="lang == 'fr'">OU</p>
+        <p v-else-if="lang == 'eng'">OR</p>
         <img src="https://cdn-icons-png.flaticon.com/512/4603/4603506.png" width="50px">
     </div>
     <main>
         <h2 id="nameCard">Killian K/vella</h2>
     </main>
     <nav id="homeNav">
-        <div class="navItem">Etudes</div>
-        <div class="navItem">Experiences</div>
-        <div class="navItem">Projets</div>
+        <LangDiv @click="pageNav('about')" divClassString="navItem" frTxt="A propos" engTxt="About" />
+        <LangDiv @click="pageNav('projects')" divClassString="navItem" frTxt="Projets" engTxt="Projects" />
+        <div @click="pageNav('contact')" class="navItem">Contact</div>
     </nav>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

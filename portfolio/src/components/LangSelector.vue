@@ -30,6 +30,7 @@ export default {
         frPhoto.style.display = "block";
         $cookies.set("lang", "fr");
       }
+      this.emitter.emit('lang-switch');
     }
   }
 }
