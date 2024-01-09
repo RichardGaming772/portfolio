@@ -64,12 +64,12 @@ export default {
             nameCard.style.left = "unset";
             topPos = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed) - speed);
             leftPos = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed) - speed);
-            if (maxWidth == 1920) {
-                downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
-            }
-            else {
+            // if (maxWidth == 1920) {
+            //     downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
+            // }
+            // else {
                 downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
-            }
+            // }
             leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd) + speed);
             nameCard.style.top = topPos + speed + "px";
             nameCard.style.left = leftPos + speed + "px";
@@ -165,6 +165,9 @@ export default {
                 spawnFood = false;
                 var foodX = roundToTwo((random(maxWidth / speed, speed) * speed) - speed);
                 var foodY = roundToTwo((random(maxHeight / speed, speed) * speed) - speed);
+                if (foodY > (maxHeight / 2)) {
+                    foodY = foodY - speed;
+                }
                 food.style.left = foodX + "px";
                 food.style.top = foodY + "px";
                 food.style.width = speed + "px";
@@ -257,53 +260,24 @@ export default {
                 switch (e.code) {
                     case "ArrowUp":
                     case "KeyW":
-                        if (dirQueue.length > 0) {
-                            if (dirQueue.at(-1) != "d") {
-                                dirQueue.push("u");
-                            }
-                        }
-                        else if (direction != "d") {
-                            dirQueue.push("u");
-                        }
+                        dirQueue.push("u");
                         break;
                     case "ArrowDown":
                     case "KeyS":
-                        if (dirQueue.length > 0) {
-                            if (dirQueue.at(-1) != "u") {
-                                dirQueue.push("d");
-                            }
-                        }
-                        else if (direction != "u") {
-                            dirQueue.push("d");
-                        }
+                        dirQueue.push("d");
                         break;
                     case "ArrowLeft":
                     case "KeyA":
-                        if (dirQueue.length > 0) {
-                            if (dirQueue.at(-1) != "r") {
-                                dirQueue.push("l");
-                            }
-                        }
-                        else if (direction != "r") {
-                            dirQueue.push("l");
-                        }
+                        dirQueue.push("l");
                         break;
                     case "ArrowRight":
                     case "KeyD":
-                        if (dirQueue.length > 0) {
-                            if (dirQueue.at(-1) != "l") {
-                                dirQueue.push("r");
-                            }
-                        }
-                        else if (direction != "l") {
-                            dirQueue.push("r");
-                        }
+                        dirQueue.push("r");
                         break;
                     default:
                         break;
                 }
-            }
-            else {
+            } else {
                 switch (e.code) {
                     case "ArrowUp":
                     case "KeyW":

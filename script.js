@@ -1,5 +1,4 @@
 var dot = document.querySelector("#player");
-var document = document.querySelector("html");
 const timeout = 100;
 var topPos = 0;
 var leftPos = 0;
