@@ -8,14 +8,16 @@ export default {
 </script>
 
 <template>
-    <TopNav />
     <LangSelector />
     <div id="field"></div>
     <main>
-        <header>
-            <h1></h1>
-        </header>
-        <LangDiv divClassString="" divId="" frTxt="Projets" engTxt="Projects"></LangDiv>
+        <TopNav />
+        <div class="pageBody">
+            <header>
+                <h1>A propos</h1>
+            </header>
+            <LangDiv divClassString="ah" divId="divLol" frTxt="Francais" engTxt="Anglais"></LangDiv>
+        </div>
     </main>
 </template>
 

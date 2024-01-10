@@ -64,12 +64,12 @@ export default {
             nameCard.style.left = "unset";
             topPos = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed) - speed);
             leftPos = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed) - speed);
-            // if (maxWidth == 1920) {
-            //     downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
-            // }
-            // else {
+            if (maxWidth == 1520) {
+                downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
+            }
+            else {
                 downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
-            // }
+            }
             leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd) + speed);
             nameCard.style.top = topPos + speed + "px";
             nameCard.style.left = leftPos + speed + "px";

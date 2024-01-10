@@ -20,24 +20,28 @@ export default {
 </script>
 
 <template>
-    <nav>
-        <LangDiv @click="pageNav('/')" divClassString="navItem" frTxt="Accueil" engTxt="Home" />
-        <LangDiv @click="pageNav('about')" v-bind:class="navString('about')" frTxt="A propos" engTxt="About" />
-        <LangDiv @click="pageNav('projects')" v-bind:class="navString('projects')" frTxt="Projets" engTxt="Projects" />
-        <div @click="pageNav('contact')" v-bind:class="navString('contact')" class="navItem">Contact</div>
-    </nav>
+    <div class="navBox">
+        <nav>
+            <LangDiv @click="pageNav('/')" divClassString="navItem" frTxt="Accueil" engTxt="Home" />
+            <LangDiv @click="pageNav('about')" v-bind:class="navString('about')" frTxt="A propos" engTxt="About" />
+            <LangDiv @click="pageNav('projects')" v-bind:class="navString('projects')" frTxt="Projets" engTxt="Projects" />
+            <div @click="pageNav('contact')" v-bind:class="navString('contact')" class="navItem">Contact</div>
+        </nav>
+    </div>
 </template>
 
 <style scoped>
 nav {
     position: unset;
-    z-index: 15;
     transform: unset;
-    width: fit-content;
     height: fit-content;
-    padding-left: 20px;
-    padding-top: 20px;
+    padding: 20px;
+    padding-right: 70px;
     margin: 0;
     flex-wrap: wrap;
+}
+
+.navBox {
+    width: 100%;
 }
 </style>
