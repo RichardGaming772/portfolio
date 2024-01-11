@@ -43,9 +43,9 @@ export default {
                 <div class="contactRow"><LangDiv frTxt="Téléphone :" engTxt="Phone:"></LangDiv><LangDiv frTxt="06 68 77 64 54" engTxt="(+33) 6 68 77 64 54"></LangDiv></div>
                 <div class="contactRow"><div>Mail :</div><div>killian.kvella@etu.univ-smb.fr</div></div>
             </div>
-            <a v-if="lang == 'fr'" href="/CV/French.pdf" class="downloadButton" download="KVELLA_Killian_CV.pdf"><LangDiv frTxt="Télécharger mon CV" engTxt="Download my CV">
+            <a v-if="lang == 'fr'" href="/CV/French.pdf" class="downloadButton" download="KVELLA_Killian_CV_FR.pdf"><LangDiv frTxt="Télécharger mon CV" engTxt="Download my CV">
             </LangDiv><i class="fa-solid fa-download"></i></a>
-            <a v-if="lang == 'eng'" href="/CV/English.pdf" class="downloadButton" download="KVELLA_Killian_CV.pdf"><LangDiv frTxt="Télécharger mon CV" engTxt="Download my CV">
+            <a v-if="lang == 'eng'" href="/CV/English.pdf" class="downloadButton" download="KVELLA_Killian_CV_ENG.pdf"><LangDiv frTxt="Télécharger mon CV" engTxt="Download my CV">
             </LangDiv><i class="fa-solid fa-download"></i></a>
         </div>
     </main>
@@ -58,7 +58,8 @@ main {
     overflow: auto;
 }
 .contactBox{
-    width: 250px;
+    width: 30%;
+    min-width: 250px;
 }
 .contactRow{
     display: flex;
