@@ -58,7 +58,7 @@ main {
     overflow: auto;
 }
 .contactBox{
-    width: 30%;
+    width: 250px;
 }
 .contactRow{
     display: flex;
