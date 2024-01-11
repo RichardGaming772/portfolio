@@ -402,4 +402,9 @@ export default {
     </nav>
 </template>
 
-<style scoped></style>
+<style scoped>
+html,
+body {
+  overscroll-behavior: none;
+}
+</style>

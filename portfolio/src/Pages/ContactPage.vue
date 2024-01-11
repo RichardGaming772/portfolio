@@ -43,6 +43,14 @@ export default {
                 <div class="contactRow"><LangDiv frTxt="Téléphone :" engTxt="Phone:"></LangDiv><LangDiv frTxt="06 68 77 64 54" engTxt="(+33) 6 68 77 64 54"></LangDiv></div>
                 <div class="contactRow"><div>Mail :</div><div>killian.kvella@etu.univ-smb.fr</div></div>
             </div>
+            <div class="iconLinkBox">
+                <a href="https://linkedin.com/in/killian-k-vella-280490227">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/RichardGaming772">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
             <a v-if="lang == 'fr'" href="/CV/French.pdf" class="downloadButton" download="KVELLA_Killian_CV_FR.pdf"><LangDiv frTxt="Télécharger mon CV" engTxt="Download my CV">
             </LangDiv><i class="fa-solid fa-download"></i></a>
             <a v-if="lang == 'eng'" href="/CV/English.pdf" class="downloadButton" download="KVELLA_Killian_CV_ENG.pdf"><LangDiv frTxt="Télécharger mon CV" engTxt="Download my CV">
@@ -56,6 +64,9 @@ main {
     min-height: 100%;
     justify-content: flex-start;
     overflow: auto;
+}
+.field{
+    position: fixed;
 }
 .contactBox{
     width: 30%;

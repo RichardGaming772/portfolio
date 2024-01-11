@@ -33,15 +33,6 @@ export default {
                 <LangDiv divClassString="pageArticle"
                     :frTxt="articles[5].fr"
                     :engTxt="articles[5].eng"></LangDiv>
-            <LangDiv divClassString="h1" frTxt="Résaux" engTxt="Socials"></LangDiv>
-            <div class="iconLinkBox">
-                <a href="https://linkedin.com/in/killian-k-vella-280490227">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/RichardGaming772">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </div>
         </div>
     </main>
 </template>
@@ -52,7 +43,9 @@ main {
     justify-content: flex-start;
     overflow: auto;
 }
-
+.field{
+    position: fixed;
+}
 body {
     background-color: black;
 }

@@ -139,6 +139,9 @@ body {
     height: 100%;
 }
 
+.field{
+    position: fixed;
+}
 .row {
     display: flex;
     flex-direction: row;
