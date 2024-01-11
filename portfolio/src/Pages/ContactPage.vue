@@ -2,8 +2,31 @@
 import LangDiv from '@/components/LangDiv.vue';
 import TopNav from '@/components/TopNav.vue';
 import LangSelector from '@/components/LangSelector.vue';
+import VueCookies from 'vue-cookies';
 export default {
-    components: { LangSelector, LangDiv, TopNav }
+    data() {
+        return {
+            lang: $cookies.get('lang')
+        }
+    },
+    components: { LangSelector, LangDiv, TopNav },
+    mounted() {
+        this.emitter.on("lang-switch", () => {
+            this.lang = $cookies.get('lang');
+        });
+        let fontawesome = document.createElement('script')
+        fontawesome.setAttribute('src', 'https://kit.fontawesome.com/4e62a5bed3.js')
+        document.head.appendChild(fontawesome)
+    },
+    methods: {
+        isFrench() {
+            if ($cookies.get('lang') == "fr") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
 </script>
 
@@ -14,38 +37,70 @@ export default {
         <TopNav />
         <div class="pageBody">
             <header>
-                <LangDiv divClassString="h1" frTxt="Contactez moi" engTxt="Contact me"></LangDiv>
+                <LangDiv divClassString="h1" frTxt="Contactez moi" engTxt="Get in touch"></LangDiv>
             </header>
-            <LangDiv divClassString="pageArticle" divId=""
-                frTxt="Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In hac habitasse platea dictumst. Integer tempus convallis augue. Etiam facilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus eget enim. Nunc vitae tortor. Proin tempus nibh sit amet nisl. Vivamus quis tortor vitae risus porta vehicula."
-                engTxt="AnSed varius, nulla vitae tincidunt lobortis, nibh ipsum sollicitudin libero, et commodo tellus massa in neque. Nulla facilisi. Aenean nec lectus. Aliquam fermentum. Duis ut magna et augue interdum gravida. Morbi elit. Fusce malesuada tempus ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris iaculis enim non metus. Nullam dui magna, congue et, suscipit sed, aliquam vel, turpis. Quisque ultricies.glais">
-            </LangDiv>
-            <LangDiv divClassString="h1" frTxt="Liens" engTxt="Links"></LangDiv>
-            <div class="iconLinkBox">
-                <a href="https://linkedin.com/in/killian-k-vella-280490227">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/RichardGaming772">
-                    <i class="fa-brands fa-github"></i>
-                </a>
+            <div class="contactBox">
+                <div class="contactRow"><LangDiv frTxt="Téléphone :" engTxt="Phone:"></LangDiv><LangDiv frTxt="06 68 77 64 54" engTxt="(+33) 6 68 77 64 54"></LangDiv></div>
+                <div class="contactRow"><div>Mail :</div><div>killian.kvella@etu.univ-smb.fr</div></div>
             </div>
-            <div class="h1">CV</div>
+            <a v-if="lang == 'fr'" href="/CV/French.pdf" class="downloadButton" download="KVELLA_Killian_CV.pdf"><LangDiv frTxt="Télécharger mon CV" engTxt="Download my CV">
+            </LangDiv><i class="fa-solid fa-download"></i></a>
+            <a v-if="lang == 'eng'" href="/CV/English.pdf" class="downloadButton" download="KVELLA_Killian_CV.pdf"><LangDiv frTxt="Télécharger mon CV" engTxt="Download my CV">
+            </LangDiv><i class="fa-solid fa-download"></i></a>
         </div>
     </main>
 </template>
 
 <style scoped>
+main {
+    min-height: 100%;
+    justify-content: flex-start;
+    overflow: auto;
+}
+.contactBox{
+    width: 30%;
+}
+.contactRow{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.downloadButton {
+    font-size: medium;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(85, 85, 85, 0.5);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+
+.downloadButton:hover {
+    background-color: rgb(116, 116, 116, 0.5);
+}
+
+body {
+    background-color: black;
+}
+
 .pageArticle {
     width: 30%;
     text-align: justify;
     min-width: 250px;
 }
-.iconLinkBox{
+
+.iconLinkBox {
     display: flex;
     flex-direction: row;
     gap: 50px;
 }
-a{
+
+a {
     text-decoration: none;
     color: white;
     font-size: xx-large;

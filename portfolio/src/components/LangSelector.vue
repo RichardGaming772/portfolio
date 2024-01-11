@@ -1,6 +1,11 @@
 <script>
 import VueCookies from 'vue-cookies'
 export default {
+  beforeMount() {
+    if (window.$cookies.get("lang") == null) {
+      window.$cookies.set("lang", "fr");
+    }
+  },
   mounted() {
     if ($cookies.get("lang") == null) {
       $cookies.set("lang", "fr");

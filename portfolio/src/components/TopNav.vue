@@ -3,9 +3,13 @@ import LangDiv from './LangDiv.vue';
 export default {
     methods: {
         pageNav(route) {
+            if(route=="/"){
+            location.replace(route);
+        } else {
             this.$router.push({
                 path: route
             });
+        }
         },
         navString: function (text) {
             if (this.$route.path.substring(1) == text) {

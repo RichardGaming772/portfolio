@@ -1,0 +1,32 @@
+[
+    {
+      "id": 0,
+      "fr": "\"A Puzzle A Day\" est un puzzle en bois créé par DragonFjord. Chaque jour, ce puzzle contient plusieurs solutions. Pour pouvoir les comparer avec celles de ma famille et de mes amis, j'ai créé une version digitale en utilisant du JavaScript/HTML/CSS. Chaque utilisateur peut alors remplir sa ou ses solutions. Elles sont ensuite enregistrées dans une base de données SQLite grâce à une API express et peuvent être visualisées par les autres joueurs. J'ai aussi créé une page résumant diverses statistiques.",
+      "eng": "\"A Puzzle A Day\" is a wooden puzzle created by DragonFjord. Every day, this puzzle has multiple different solutions. To be able to compare my answers and my friends and family's answers, I created a digital version of the puzzle using JavaScript/HTML/CSS. Users can submit their solutions, which are then saved to an SQLite database using an express API. The answers can then be seen by the other users. I also created a page to show off some basic user statistics."
+    },
+    {
+      "id": 1,
+      "fr": "Je joue souvent à un jeu de rôle avec mes amis, mais ils n'ont pas le temps d'apprendre les règles de Donjons et Dragons. Pour pouvoir quand même jouer ensemble, j'en ai créé une version simplifiée. Aucune application existante ne pouvait héberger confortablement cette version du jeu, donc pour leur faciliter l'expérience, j'ai développé la mienne. Cette application leur permet de contrôler et enregistrer dynamiquement toutes les informations de leur personnage, de l'histoire et du monde du JDR. Pour la rendre utilisable par tout le monde depuis leur téléphone et ordinateur, je l'ai réalisée en Flutter. Utilisant une base de données PostgreSQL interrogée par des requêtes à une API express.",
+      "eng": "I like to play role playing games with my friends, but they don't have the time to learn Dungeons and Dragons. To still be able to play together, I created my own simplified version. No pre-existing application could comfortably adapt to my system, so in order to simply their experience, I created my own. This application allows them to control and store all the information relevant to their in-game characters, as well as some information about the history and the world of the game. I used Flutter to make the app usable on all their phones and computers. The app uses API requests to a PostgreSQL database to store and keep the information."
+    },
+    {
+      "id": 2,
+      "fr": "Un des projets majeurs de ma deuxième année universitaire était la création d'un site web complet en simulation pour ClubMed. Nous avions un cahier des charges avec lequel nous avions à développer l'application dans un environnement SCRUM simulé. Ce projet nous demandait de réaliser des modèles UML, de créer et peupler une base de données complexe et de développer tout le site web avec Laravel en veillant à sa sécurité et sa conformité aux normes RGPD.",
+      "eng": "One of the major projects from the second year of my university course was the complete creation of a new website in a simulated exchange with ClubMed. Our teachers created proper documents detailing the precise needs of the pretend company, which we had to develop in a simulated SCRUM environment. During this project we had to graph UML models, create and populate a complex database and develop the website using Laravel, all while being mindful of web security and conformity to GRPD laws and norms."
+    },
+    {
+      "id": 3,
+      "fr": "Ma famille et moi sommes fans de films de tous genres. Nous avons une grande collection de DVDs qui devenait difficile à organiser. Pour éviter de racheter des films que nous avons déjà et pour pouvoir retrouver des DVDs que nous voulons regarder, j'ai créé ce site web. Sur ce site, nous enregistrons la localisation de nos DVDs (dans quelle armoire, à quel étage, ou s'ils sont empruntés par quelqu'un…). Pour remplir la base de données plus facilement, le site va chercher les données sur IMDB. Il suffit de renseigner le titre du film ou de la série qu'on souhaite ajouter, et les acteurs, genres, directeurs, etc. sont chargés automatiquement.",
+      "eng": "My family and I enjoy watching a lot of movies. We have a big collection of DVDs that were starting to be difficult to keep track of. To avoid buying the same film twice and to find specific DVDs we want to watch, I created this website. Using this web application, we can store movies and their placement (which cupboard the disc is in, which shelf drawer, or who we lent the movie to...). To fill the database quicker, the website gathers the film's information from IMDB automatically, so by simply entering the name of the movie or series you want to add you will get the relevant actors, genres, directors, etc."
+    },
+    {
+      "id": 4,
+      "fr": "Je m'appelle Killian K/vella et je suis en 3ᵉ année de BUT Informatique. Je suis passionné par l'algorithmie et ses applications pratiques dans notre vie de tous les jours. Je suis motivé par la création de sites web ou applications qui sont utiles et/ou amusantes. Mes compétences sont les plus fortes en JavaScript, C# et PHP, mais j'aime toujours apprendre et mettre à l'épreuve mes connaissances.",
+      "eng": "My name is Killian K/vella, and I am a third year university student in computer science. I am fascinated by algorithms and their practical applications in our everyday lives. What drives me is creating websites and applications that are useful and/or fun. I am strongest using JavaScript, C# and PHP, but I am always looking to learn more and challenge my skills."
+    },
+    {
+      "id": 5,
+      "fr": "Je regarde beaucoup de films, j'aime particulièrement ceux d'Edgar Wright et Christopher Nolan. Le montage vidéo et les effets spéciaux sont aussi quelque chose qui me passionne. Pour passer le temps, je joue à des jeux de société, jeux de rôle et jeux vidéo avec mes amis.",
+      "eng": "I watch a lot of films, I particularly love Edgar Wright and Christopher Nolan's work. Video editing and special effects are some of my other passions. To pass the time, I enjoy playing tabletop games, role-playing games and video games with my friends."
+    }
+  ]

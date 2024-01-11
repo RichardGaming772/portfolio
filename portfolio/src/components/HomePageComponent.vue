@@ -42,7 +42,13 @@ export default {
         var yCardEnd = roundToTwo(speed * Math.ceil(nameCard.scrollHeight / speed) + speed);
         var xStart = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed));
         var yStart = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed));
-        var downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
+        var load = true;
+        if (maxWidth == 1920) {
+            var downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
+        }
+        else {
+            var downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
+        }
         var leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd));
         async function init() {
             idle = true;
@@ -64,12 +70,13 @@ export default {
             nameCard.style.left = "unset";
             topPos = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed) - speed);
             leftPos = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed) - speed);
-            if (maxWidth == 1520) {
+            if (load && maxWidth == 1920) {
                 downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
             }
             else {
                 downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
             }
+            load = false;
             leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd) + speed);
             nameCard.style.top = topPos + speed + "px";
             nameCard.style.left = leftPos + speed + "px";
