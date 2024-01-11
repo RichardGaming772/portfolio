@@ -10,15 +10,14 @@ export default {
     },
     methods: {
         pageNav(route) {
-            this.$router.push({
-                path: route
-            });
+            location.replace(route);
         }
     },
     mounted() {
         this.emitter.on("lang-switch", () => {
             this.lang = $cookies.get('lang');
         });
+        document.querySelector("body").style.overscrollBehavior = "none";
         var dot = document.querySelector("#player");
         const timeout = 100;
         var topPos = 0;

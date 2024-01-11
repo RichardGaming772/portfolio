@@ -120,8 +120,9 @@ main {
     overflow: auto;
 }
 
-body {
+html, body {
     background-color: black;
+    overscroll-behavior: auto;
 }
 
 .projectDesc {

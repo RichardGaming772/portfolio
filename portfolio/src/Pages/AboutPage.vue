@@ -43,6 +43,11 @@ main {
     justify-content: flex-start;
     overflow: auto;
 }
+
+html, body {
+    background-color: black;
+    overscroll-behavior: auto;
+}
 .field{
     position: fixed;
 }
