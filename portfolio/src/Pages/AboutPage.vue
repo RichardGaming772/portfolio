@@ -2,7 +2,8 @@
 import LangDiv from '@/components/LangDiv.vue';
 import TopNav from '@/components/TopNav.vue';
 import LangSelector from '@/components/LangSelector.vue';
-import pageData from '../assets/data/text.json'
+import pageData from '../assets/data/text.json';
+
 export default {
     components: { LangSelector, LangDiv, TopNav },
     mounted() {

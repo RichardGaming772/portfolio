@@ -1,0 +1,49 @@
+[
+  {
+    "catFr": "Réaliser un développement",
+    "catEng": "Develop an application",
+    "texts": [
+      {
+        "titleFr": "Choisir et implémenter les architectures adaptées",
+        "titleEng": "Choose and implement adapted architectures",
+        "id": 0,
+        "fr": "\"A Puzzle A Day\" est un puzzle en bois créé par DragonFjord. Chaque jour, ce puzzle contient plusieurs solutions. Pour pouvoir les comparer avec celles de ma famille et de mes amis, j'ai créé une version digitale en utilisant du JavaScript/HTML/CSS. Chaque utilisateur peut alors remplir sa ou ses solutions. Elles sont ensuite enregistrées dans une base de données SQLite grâce à une API express et peuvent être visualisées par les autres joueurs. J'ai aussi créé une page résumant diverses statistiques.",
+        "eng": "\"A Puzzle A Day\" is a wooden puzzle created by DragonFjord. Every day, this puzzle has multiple different solutions. To be able to compare my answers and my friends and family's answers, I created a digital version of the puzzle using JavaScript/HTML/CSS. Users can submit their solutions, which are then saved to an SQLite database using an express API. The answers can then be seen by the other users. I also created a page to show off some basic user statistics."
+      },
+      {
+        "titleFr": "Faire évoluer une application existante",
+        "titleEng": "Develop on an existing application",
+        "id": 0,
+        "fr": "\"A Puzzle A Day\" est un puzzle en bois créé par DragonFjord. Chaque jour, ce puzzle contient plusieurs solutions. Pour pouvoir les comparer avec celles de ma famille et de mes amis, j'ai créé une version digitale en utilisant du JavaScript/HTML/CSS. Chaque utilisateur peut alors remplir sa ou ses solutions. Elles sont ensuite enregistrées dans une base de données SQLite grâce à une API express et peuvent être visualisées par les autres joueurs. J'ai aussi créé une page résumant diverses statistiques.",
+        "eng": "\"A Puzzle A Day\" is a wooden puzzle created by DragonFjord. Every day, this puzzle has multiple different solutions. To be able to compare my answers and my friends and family's answers, I created a digital version of the puzzle using JavaScript/HTML/CSS. Users can submit their solutions, which are then saved to an SQLite database using an express API. The answers can then be seen by the other users. I also created a page to show off some basic user statistics."
+      },
+      {
+        "titleFr": "Intégrer des solutions dans un environnement de développement, de test ou de production",
+        "titleEng": "Integrate solutions into an environment",
+        "id": 0,
+        "fr": "\"A Puzzle A Day\" est un puzzle en bois créé par DragonFjord. Chaque jour, ce puzzle contient plusieurs solutions. Pour pouvoir les comparer avec celles de ma famille et de mes amis, j'ai créé une version digitale en utilisant du JavaScript/HTML/CSS. Chaque utilisateur peut alors remplir sa ou ses solutions. Elles sont ensuite enregistrées dans une base de données SQLite grâce à une API express et peuvent être visualisées par les autres joueurs. J'ai aussi créé une page résumant diverses statistiques.",
+        "eng": "\"A Puzzle A Day\" is a wooden puzzle created by DragonFjord. Every day, this puzzle has multiple different solutions. To be able to compare my answers and my friends and family's answers, I created a digital version of the puzzle using JavaScript/HTML/CSS. Users can submit their solutions, which are then saved to an SQLite database using an express API. The answers can then be seen by the other users. I also created a page to show off some basic user statistics."
+      }
+    ]
+  },
+  {
+    "catFr": "Optimiser des applications",
+    "catEng": "Optimize applications",
+    "texts": [
+      {
+        "titleFr": "Profiler, analyser et justifier le comportement d’un code existant",
+        "titleEng": "Profile, analyse and justify the behaviour of existing code",
+        "id": 0,
+        "fr": "\"A Puzzle A Day\" est un puzzle en bois créé par DragonFjord. Chaque jour, ce puzzle contient plusieurs solutions. Pour pouvoir les comparer avec celles de ma famille et de mes amis, j'ai créé une version digitale en utilisant du JavaScript/HTML/CSS. Chaque utilisateur peut alors remplir sa ou ses solutions. Elles sont ensuite enregistrées dans une base de données SQLite grâce à une API express et peuvent être visualisées par les autres joueurs. J'ai aussi créé une page résumant diverses statistiques.",
+        "eng": "\"A Puzzle A Day\" is a wooden puzzle created by DragonFjord. Every day, this puzzle has multiple different solutions. To be able to compare my answers and my friends and family's answers, I created a digital version of the puzzle using JavaScript/HTML/CSS. Users can submit their solutions, which are then saved to an SQLite database using an express API. The answers can then be seen by the other users. I also created a page to show off some basic user statistics."
+      },
+      {
+        "titleFr": "Choisir et utiliser des bibliothèques et méthodes dédiées au domaine d’application",
+        "titleEng": "Choose and use libraries or methods dedicated to the application domain",
+        "id": 0,
+        "fr": "\"A Puzzle A Day\" est un puzzle en bois créé par DragonFjord. Chaque jour, ce puzzle contient plusieurs solutions. Pour pouvoir les comparer avec celles de ma famille et de mes amis, j'ai créé une version digitale en utilisant du JavaScript/HTML/CSS. Chaque utilisateur peut alors remplir sa ou ses solutions. Elles sont ensuite enregistrées dans une base de données SQLite grâce à une API express et peuvent être visualisées par les autres joueurs. J'ai aussi créé une page résumant diverses statistiques.",
+        "eng": "\"A Puzzle A Day\" is a wooden puzzle created by DragonFjord. Every day, this puzzle has multiple different solutions. To be able to compare my answers and my friends and family's answers, I created a digital version of the puzzle using JavaScript/HTML/CSS. Users can submit their solutions, which are then saved to an SQLite database using an express API. The answers can then be seen by the other users. I also created a page to show off some basic user statistics."
+      }
+    ]
+  }
+]

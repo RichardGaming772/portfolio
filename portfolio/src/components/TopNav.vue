@@ -29,6 +29,7 @@ export default {
             <LangDiv @click="pageNav('/')" divClassString="navItem" frTxt="Accueil" engTxt="Home" />
             <LangDiv @click="pageNav('about')" v-bind:class="navString('about')" frTxt="A propos" engTxt="About" />
             <LangDiv @click="pageNav('projects')" v-bind:class="navString('projects')" frTxt="Projets" engTxt="Projects" />
+            <LangDiv @click="pageNav('skills')" v-bind:class="navString('skills')" frTxt="Compétences" engTxt="Skills" />
             <div @click="pageNav('contact')" v-bind:class="navString('contact')" class="navItem">Contact</div>
         </nav>
     </div>
