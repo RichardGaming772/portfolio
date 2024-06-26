@@ -1,4 +1,4 @@
-<script >
+<script>
 import LangSelector from '../components/LangSelector.vue';
 import VueCookies from 'vue-cookies'
 import LangDiv from './LangDiv.vue';
@@ -405,6 +405,14 @@ export default {
 <style scoped>
 html,
 body {
-  overscroll-behavior: none;
+    overscroll-behavior: none;
+}
+
+@media screen and (max-width: 500px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 3px;
+        width: 100%;
+    }
 }
 </style>

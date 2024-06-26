@@ -180,14 +180,6 @@ nav {
   -webkit-user-drag: none;
 }
 
-@media screen and (max-width: 500px) {
-  nav {
-    flex-wrap: wrap;
-    gap: 3px;
-    width: 100%;
-  }
-}
-
 @keyframes keysFlash {
   0% {
     content: url(imgs/WASD.png);
