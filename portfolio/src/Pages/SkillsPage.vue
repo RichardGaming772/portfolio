@@ -126,4 +126,12 @@ body {
     margin-bottom: 20px;
     height: unset;
 }
+
+
+@media screen and (max-width: 1100px){
+    .skillBoard {
+        width: unset;
+        margin: 5px;
+    }
+}
 </style>
