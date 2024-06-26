@@ -3,21 +3,23 @@
   padding: 0;
   font-family: Jost, Verdana, Geneva, Tahoma, sans-serif;
 }
+
 @font-face {
   font-family: 'Jost';
   font-style: normal;
   font-display: swap;
   src: url(../assets/font/Jost.woff2) format('woff2');
 }
+
 html,
 body {
   height: 100%;
   width: 100%;
   position: fixed;
-  
+
 }
 
-.pageBody{
+.pageBody {
   height: 100%;
   width: 100%;
   display: flex;
@@ -36,7 +38,9 @@ body {
   margin-inline-end: 0px;
   font-weight: bold;
 }
-.h1::after, .h1::before{
+
+.h1::after,
+.h1::before {
   content: "-";
   margin: 15px;
 }
@@ -116,6 +120,7 @@ nav {
   top: 0;
   transform: translate(-50%, -50%);
   gap: 15px;
+  justify-content: center;
 }
 
 .navItem {
@@ -130,11 +135,12 @@ nav {
   min-width: fit-content;
 }
 
-.navItem:hover, .currentNavItem {
+.navItem:hover,
+.currentNavItem {
   background-color: rgba(116, 116, 116, 0.5);
 }
 
-.currentNavItem{
+.currentNavItem {
   border-bottom: 2px grey solid;
 }
 
@@ -172,6 +178,14 @@ nav {
   animation: keysFlash 5s none infinite normal;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+@media screen and (max-width: 500px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 3px;
+    width: 100%;
+  }
 }
 
 @keyframes keysFlash {
