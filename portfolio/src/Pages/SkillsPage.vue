@@ -87,7 +87,7 @@ body {
 }
 
 .skillBoard {
-    width: 80%;
+    width: 50%;
     perspective: 1px;
     border-collapse: separate;
 }

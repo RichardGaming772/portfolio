@@ -397,6 +397,7 @@ export default {
     <nav id="homeNav">
         <LangDiv @click="pageNav('about')" divClassString="navItem" frTxt="A propos" engTxt="About" />
         <LangDiv @click="pageNav('projects')" divClassString="navItem" frTxt="Projets" engTxt="Projects" />
+        <LangDiv @click="pageNav('skills')" divClassString="navItem" frTxt="Compétences" engTxt="Skills" />
         <div @click="pageNav('contact')" class="navItem">Contact</div>
     </nav>
 </template>
