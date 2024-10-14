@@ -33,11 +33,6 @@ const routes = [
       name: 'Contact',
       component: ContactPage
     },
-    {
-      path: '/skills',
-      name: 'Skills',
-      component: SkillsPage
-    },
   ]
   
   const router = VueRouter.createRouter({
