@@ -41,7 +41,7 @@ export default {
             </header>
             <div class="contactBox">
                 <div class="contactRow"><LangDiv frTxt="Téléphone :" engTxt="Phone:"></LangDiv><LangDiv frTxt="06 68 77 64 54" engTxt="(+33) 6 68 77 64 54"></LangDiv></div>
-                <div class="contactRow"><div>Maile :</div><div>killian.kvella@etu.univ-smb.fr</div></div>
+                <div class="contactRow"><div>Mail :</div><div>killian.kvella@etu.univ-smb.fr</div></div>
             </div>
             <div class="iconLinkBox">
                 <a href="https://linkedin.com/in/killian-k-vella-280490227">
