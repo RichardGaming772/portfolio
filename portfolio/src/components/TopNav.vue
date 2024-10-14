@@ -46,6 +46,7 @@ nav {
     padding-right: 70px;
     margin: 0;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .navBox {
