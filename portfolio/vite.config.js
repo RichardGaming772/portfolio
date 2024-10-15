@@ -15,6 +15,7 @@ export default defineConfig({
     }
   },
   server: {
+    port: 80,
     https: {
       key: fs.readFileSync(path.resolve(__dirname, '/etc/letsencrypt/live/killiankvella.com/privkey.pem')),
       cert: fs.readFileSync(path.resolve(__dirname, '/etc/letsencrypt/live/killiankvella.com/fullchain.pem')),

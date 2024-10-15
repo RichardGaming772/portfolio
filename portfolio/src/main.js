@@ -3,7 +3,7 @@ import HomePage from './Pages/HomePage.vue'
 import AboutPage from './Pages/AboutPage.vue'
 import ProjectsPage from './Pages/ProjectsPage.vue'
 import ContactPage from './Pages/ContactPage.vue'
-import SkillsPage from './Pages/SkillsPage.vue'
+//import SkillsPage from './Pages/SkillsPage.vue'
 
 import { createApp } from 'vue'
 import * as VueRouter from 'vue-router'
