@@ -69,12 +69,12 @@ export default {
             nameCard.style.left = "unset";
             topPos = roundToTwo(speed * Math.ceil(nameCard.offsetTop / speed) - speed);
             leftPos = roundToTwo(speed * Math.ceil(nameCard.offsetLeft / speed) - speed);
-            if (load && maxWidth == 1920) {
-                downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
-            }
-            else {
+            // if (load && maxWidth == 1920) {
+            //     downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd));
+            // }
+            // else {
                 downTurn = roundToTwo((speed * Math.floor(nameCard.offsetLeft / speed) + xCardEnd) + speed);
-            }
+            // }
             load = false;
             leftTurn = roundToTwo((speed * Math.floor(nameCard.offsetTop / speed) + yCardEnd) + speed);
             nameCard.style.top = topPos + speed + "px";
